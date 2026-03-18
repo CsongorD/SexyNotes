@@ -2,6 +2,14 @@
   "extends": "@repo/typescript-config/nextjs.json",
   "compilerOptions": {
 
+    "moduleResolution": "bundler",          // ← key for Next.js 14/15 + pnpm + modern deps
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "incremental": true,
+
     "baseUrl": ".",                     // or "./" if not already present
     "paths": {
       "@/*": ["./*"]                    // points to root of apps/web
@@ -16,9 +24,12 @@
   "include": [
     "**/*.ts",
     "**/*.tsx",
+    "**/*.d.ts",
     "next-env.d.ts",
     "next.config.js",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "types/tiptap.d.ts",
+    "types/**/*.d.ts"
   ],
   "exclude": ["node_modules"]
 }
